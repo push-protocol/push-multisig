@@ -79,11 +79,11 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity, 
+    concurrency: Infinity,
 
   };
 
-  // 
+  //
   // config.set(
   var configuration = {
     // other things
@@ -94,10 +94,10 @@ module.exports = function(config) {
         }
     },
   };
- 
+
   if (process.env.TRAVIS) {
       configuration.browsers = ['Chrome_travis_ci'];
   }
- 
+
   config.set(Object.assign({}, karmaConfig, configuration));
 };

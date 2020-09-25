@@ -110,11 +110,17 @@ module.exports = function(grunt) {
           cmd: "run"
         }
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'public'
+      },
+      build: ['**']
     }
   });
 
   grunt.registerTask('ssl-cert', function () {
-    if (!grunt.file.exists('./localhost.crt') && !grunt.file.exists('./localhost.key')) {      
+    if (!grunt.file.exists('./localhost.crt') && !grunt.file.exists('./localhost.key')) {
       grunt.task.run(['npm-command']);
     }
   });
@@ -125,6 +131,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-npm-command');
+  grunt.loadNpmTasks('grunt-gh-pages');
+
 
   grunt.registerTask('default', ['ngtemplates', 'http-server']);
   grunt.registerTask('ledger', ['ssl-cert', 'ngtemplates', 'http-server:ssl']);
@@ -249,7 +257,7 @@ module.exports = function(grunt) {
       jsStandaloneFileContent += standaloneModuleContent;
       fs.writeFileSync(jsStandaloneDirPath + '/' + standaloneLibs[x].name, jsStandaloneFileContent, 'utf8');
     }
-    
+
     // Package CSS
     let cssBundleFileContent = '';
     let cssContent;

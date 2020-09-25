@@ -10,6 +10,8 @@
     <link rel="icon" type="image/png" sizes="any" href="./bundles/img/wallet-logo.png" />
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="./bundles/css/bundle.css" />
+    <link rel="stylesheet" href="./bundles/css/override.css" />
+
     <!-- 3rd party Script -->
     <script>
       if (isElectron) {
@@ -166,7 +168,7 @@
     <footer>
       <nav class="imprint" ng-controller="footerCtrl">
         <div class="container">
-          Please read our full <a ng-click="openPolicy()">Privacy Policy</a> and <a ng-click="openTerms()">Terms of Use</a>. - <a ng-click="openImprint()">Imprint</a>
+          <b>Powered by <a href="https://github.com/gnosis/MultiSigWallet/tree/master/dapp">Gnosis Multisig</a></b>. Please read our full <a ng-click="openPolicy()">Privacy Policy</a> and <a ng-click="openTerms()">Terms of Use</a>. - <a ng-click="openImprint()">Imprint</a>
         </div>
       </nav>
     </footer>
